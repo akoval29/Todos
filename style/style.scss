@@ -2,11 +2,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap");
 
-$theme-color: rgb(118, 66, 214); // <=  Theme change feature !
+$theme-color: rgb(66, 88, 214); // <=  Theme change feature !
 
 .main {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
   font-family: "Roboto", sans-serif;
   background: linear-gradient(
@@ -19,22 +19,61 @@ $theme-color: rgb(118, 66, 214); // <=  Theme change feature !
   user-select: none; // user cannot select text
   &__wrap {
     max-width: 450px;
+    position: relative;
+    margin: 40px;
+  }
+  &__girl {
+    position: absolute;
+    object-fit: cover;
+    max-width: 200px;
+    top: 0;
+    right: -42.5%;
   }
 }
 
-.inputBlock {
+.block-top {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
   flex-direction: column;
-  font-family: "Poppins", sans-serif;
-  letter-spacing: 1px;
-  margin: 10px;
+  min-height: 90px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  width: 500px;
+  padding: 10px;
+  box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.3);
+  background-color: $theme-color;
+  color: white;
 
+  &__img {
+    object-fit: cover;
+    max-width: 200px;
+  }
+}
+
+.block-bottom {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  min-height: 400px;
+  width: 500px;
+
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding: 20px;
+  box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.3);
+  background-color: lighten($theme-color, 18%);
+
+  &__wrap {
+    display: flex;
+    flex-direction: row;
+  }
   &__input {
     width: 350px;
     height: 30px;
-    padding: 5px 20px 5px 5px;
+    // padding: 5px 20px 5px 5px;
+    margin-right: 10px;
     text-align: center;
     text-transform: uppercase;
     opacity: 0.6;
@@ -46,38 +85,16 @@ $theme-color: rgb(118, 66, 214); // <=  Theme change feature !
       color: #999;
       font-style: italic;
       text-transform: none;
-      opacity: 0.6;
+      // opacity: 0.6;
     }
     &:focus {
       box-shadow: 0 0 10px $theme-color;
       outline: none;
     }
   }
-
-  &__wrap {
-    position: relative;
-  }
-  &__cross {
-    position: absolute;
-    font-size: 13px;
-    font-weight: bold;
+  &__label {
     color: $theme-color;
-    top: 50%;
-    right: 16%;
-    transform: translateY(-50%);
-    transition: transform 0.3s ease;
-    cursor: pointer;
-    &:hover {
-      transform: rotate(90deg) translateX(-80%);
-    }
-  }
-
-  &__selected {
-    font-size: 10px;
-    font-style: italic;
-    font-weight: bold;
-    text-shadow: 3px 3px 7px rgba(0, 0, 0, 0.3);
-    margin: 3px;
+    font-weight: bolder;
   }
   &__btn {
     width: 50px;
@@ -98,65 +115,9 @@ $theme-color: rgb(118, 66, 214); // <=  Theme change feature !
   }
 }
 
-.outputBlock {
+.footer {
   display: flex;
-  align-items: center;
+  flex-direction: row;
   justify-content: center;
-  flex-direction: column;
-  color: white;
-  margin: 10px;
-
-  &__top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-direction: row;
-    width: 100%;
-    text-align: center;
-    min-height: 90px;
-    padding: 10px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.3);
-    background-color: $theme-color;
-  }
-  &__start,
-  &__mid,
-  &__end {
-    margin: 0 15px;
-    font-weight: bold;
-  }
-  &__temp {
-    font-size: 40px;
-  }
-  &__city {
-    font-size: 30px;
-  }
-  &__img {
-    object-fit: cover;
-    width: 60px;
-  }
-
-  &__bottom {
-    display: flex;
-    justify-content: center;
-    align-items: space-between;
-    flex-direction: column;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    padding: 15px;
-    box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.3);
-    min-height: 400px;
-    width: 100%;
-    background-color: $theme-color;
-    opacity: 0.6;
-  }
-  &__days {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: row;
-    gap: 15px;
-    margin-bottom: 5px;
-  }
+  align-items: center;
 }

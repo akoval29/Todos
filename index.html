@@ -10,26 +10,39 @@
   </head>
   <body class="main">
     <article class="main__wrap">
-      <section class="inputBlock">
-        <div class="inputBlock__wrap">
-          <input
-            class="inputBlock__input"
-            type="text"
-            name="region"
-            placeholder="city"
-          />
-          <span class="inputBlock__cross">✕</span>
-          <button class="inputBlock__btn">Go</button>
-        </div>
-        <div class="inputBlock__selected">Selected: none</div>
+      <img class="main__girl" src="./src/girl.png" alt="girl-img" />
+
+      <section class="block-top">
+        <img class="block-top__img" src="./src/todo-logo.png" alt="logo-img" />
       </section>
 
-      <section class="outputBlock">
-        <div class="outputBlock__top"></div>
-        <div class="outputBlock__bottom"></div>
+      <section class="block-bottom">
+        <label class="block-bottom__label" for="newTask">New task</label>
+        <div class="block-bottom__wrap">
+          <input
+            class="block-bottom__input"
+            type="text"
+            id="newTask"
+            name="first-name"
+            placeholder="enter your task"
+            required
+          />
+          <button class="block-bottom__btn">Go</button>
+        </div>
+        <div class="block-bottom__entry">
+          <p class="block-bottom__number">1</p>
+          <h1 class="block-bottom__todo">Learn javaScript</h1>
+          <img class="block-bottom__img" src="./src/edit.png" alt="edit-img" />
+          <img class="block-bottom__img" src="./src/bin.png" alt="bin-img" />
+        </div>
+      </section>
+
+      <section class="footer">
+        <img class="footer__img" src="./src/clear.png" alt="bin-img" />
+        <p class="footer__crear">clear items</p>
+        <img class="footer__img" src="./src/clear.png" alt="bin-img" />
       </section>
     </article>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script type="module" src="js/script.js"></script>
+    <script src="js/script.js"></script>
   </body>
 </html>
