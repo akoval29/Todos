@@ -24,6 +24,7 @@
   max-width: 200px;
   top: 0;
   right: -42.5%;
+  z-index: 1;
 }
 
 .block-top {
@@ -47,6 +48,7 @@
 }
 
 .block-bottom {
+  position: relative;
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
@@ -55,9 +57,18 @@
   width: 500px;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
-  padding: 20px;
+  padding: 20px 20px 50px 20px;
   box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.3);
-  background-color: #8d9be6;
+  background-color: #abb5ed;
+}
+.block-bottom__img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  max-width: 25px;
+  margin: 0 10px;
+}
+.block-bottom__img:hover {
+  cursor: pointer;
 }
 .block-bottom__wrap {
   display: flex;
@@ -66,7 +77,7 @@
 .block-bottom__input {
   width: 350px;
   height: 30px;
-  margin-right: 10px;
+  margin: 0px 10px 10px 0px;
   text-align: center;
   text-transform: uppercase;
   opacity: 0.6;
@@ -110,10 +121,28 @@
 .block-bottom__btn:active {
   transform: scale(1);
 }
-
-.footer {
+.block-bottom__entries {
+  display: flex;
+  flex-direction: column;
+}
+.block-bottom__entry {
+  display: flex;
+  flex-direction: row;
+  margin: 10px 0;
+  font-size: 20px;
+}
+.block-bottom__todo {
+  margin: 0 20px;
+}
+.block-bottom__cleaner {
+  position: absolute;
+  bottom: 3%;
+  left: 33%;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: green;
 }/*# sourceMappingURL=style.css.map */
