@@ -15,14 +15,13 @@
 .main__wrap {
   max-width: 450px;
   position: relative;
-  margin: 40px;
 }
 .main__girl {
   position: absolute;
   -o-object-fit: cover;
      object-fit: cover;
   max-width: 200px;
-  top: 0;
+  top: -3%;
   right: -42.5%;
   z-index: 1;
 }
@@ -124,6 +123,7 @@
 .block-bottom__entries {
   display: flex;
   flex-direction: column;
+  gap: 5px;
 }
 .block-bottom__entry {
   display: flex;
@@ -137,7 +137,7 @@
 .block-bottom__cleaner {
   position: absolute;
   bottom: 3%;
-  left: 33%;
+  left: 32%;
   display: flex;
   flex-direction: row;
   justify-content: center;
