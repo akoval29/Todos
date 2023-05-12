@@ -11,20 +11,22 @@ const num = document.querySelectorAll(".block-bottom__num");
 const cleaner = document.querySelector(".block-bottom__cleaner");
 
 // перший запуск
-document.addEventListener("DOMContentLoaded", (e) => {
-  e.preventDefault();
+document.addEventListener("DOMContentLoaded", () => {
+  if (localStorage.getItem("todo") === "[]") {
+    localStorage.clear();
+  } // Bug fix
 
   if (localStorage.getItem("todo")) {
-    console.log("we have something in local storage");
-    const rowsForParse = localStorage.getItem("todo");
-    const rows = JSON.parse(rowsForParse);
-    console.log(rows);
+    console.log("Local storage contain something");
 
+    const rows = JSON.parse(localStorage.getItem("todo"));
     for (let i = 0; i < rows.length; i++) {
       const row = rows[i];
       generator(row);
     }
+    upDateLocalStorage();
   } else {
+    console.log("Local storage is EMPTY");
     generator("write a letter");
     generator("go to the cinema");
   }
@@ -36,10 +38,10 @@ function upDateLocalStorage() {
   document.querySelectorAll(".block-bottom__todo").forEach((item) => {
     rows.push(item.innerHTML);
   });
-  console.log(rows);
 
-  const rowsJsoned = JSON.stringify(rows);
-  localStorage.setItem("todo", rowsJsoned);
+  console.log("local storage ↓");
+  console.log(rows);
+  localStorage.setItem("todo", JSON.stringify(rows));
 }
 
 // newTask
@@ -57,11 +59,7 @@ let rows = [];
 function generator(val) {
   // Generator - Нумерація
   let numArr = document.querySelectorAll(".block-bottom__num");
-  if (numArr.length === 0) {
-    number = 1;
-  } else {
-    number = numArr.length + 1;
-  }
+  numArr.length === 0 ? (number = 1) : (number = numArr.length + 1);
 
   // Generator - Верстка
   entryBox.innerHTML += `
@@ -84,6 +82,7 @@ function generator(val) {
   document.querySelectorAll(".block-bottom__img--bin").forEach((item) => {
     item.addEventListener("click", () => {
       item.parentNode.remove();
+      upDateLocalStorage();
     });
   });
 
@@ -92,6 +91,7 @@ function generator(val) {
     item.addEventListener("click", () => {
       taskInput.value = item.previousElementSibling.innerHTML;
       item.parentNode.remove();
+      upDateLocalStorage();
     });
   });
 }
@@ -102,6 +102,12 @@ cleaner.addEventListener("click", () => {
   for (let i = 0; i < entries.length; i++) {
     entries[i].remove();
   }
+  localStorage.removeItem("todo");
+});
+
+// клік на дівчину - перезапуск сторінки
+girl.addEventListener("click", () => {
+  window.location.reload();
 });
 
 // інпут реагує на клавішу ENTER
@@ -115,10 +121,4 @@ taskInput.addEventListener("keyup", (event) => {
 // фокус на текстовий інпут при кліках по сторінці
 main.addEventListener("click", () => {
   taskInput.focus();
-});
-
-// клік на дівчину - перезапуск сторінки і local storage
-girl.addEventListener("click", () => {
-  localStorage.removeItem("todo");
-  window.location.reload();
 });
