@@ -13,7 +13,6 @@
           user-select: none;
 }
 .main__wrap {
-  max-width: 450px;
   position: relative;
 }
 .main__girl {
@@ -22,7 +21,7 @@
      object-fit: cover;
   max-width: 200px;
   top: -3%;
-  right: -42.5%;
+  right: -28.8%;
   z-index: 1;
 }
 
@@ -32,9 +31,9 @@
   justify-content: center;
   flex-direction: column;
   min-height: 90px;
+  max-width: 500px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  width: 500px;
   padding: 10px;
   box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.3);
   background-color: rgb(66, 113, 214);
@@ -53,25 +52,17 @@
   align-items: flex-start;
   flex-direction: column;
   min-height: 400px;
-  width: 500px;
+  max-width: 500px;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   padding: 20px 20px 50px 20px;
   box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.3);
   background-color: #abc0ed;
 }
-.block-bottom__img {
-  -o-object-fit: cover;
-     object-fit: cover;
-  max-width: 25px;
-  margin: 0 10px;
-}
-.block-bottom__img:hover {
-  cursor: pointer;
-}
 .block-bottom__wrap {
   display: flex;
   flex-direction: row;
+  padding-right: 35px;
 }
 .block-bottom__input {
   width: 350px;
@@ -112,6 +103,7 @@
   color: white;
   font-weight: bold;
   box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease-in-out;
 }
 .block-bottom__btn:hover {
   cursor: pointer;
@@ -130,9 +122,11 @@
   flex-direction: row;
   margin: 10px 0;
   font-size: 20px;
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
 }
 .block-bottom__todo {
-  margin: 0 20px;
+  margin: 0 10px;
 }
 .block-bottom__cleaner {
   position: absolute;
@@ -145,4 +139,33 @@
   text-transform: uppercase;
   font-weight: bold;
   color: green;
+  transition: transform 0.2s ease-in-out;
+}
+.block-bottom__cleaner:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+.block-bottom__img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  max-width: 30px;
+  margin: 0 10px;
+  transition: transform 0.2s ease-in-out;
+}
+.block-bottom__img:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+}
+.block-bottom__spinner {
+  animation-name: spin;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }/*# sourceMappingURL=style.css.map */

@@ -27,8 +27,8 @@ document.addEventListener("DOMContentLoaded", () => {
     upDateLocalStorage();
   } else {
     console.log("Local storage is EMPTY");
-    generator("write a letter");
-    generator("go to the cinema");
+    generator("Learn JavaScript");
+    generator("Learn React");
   }
 });
 
@@ -39,7 +39,7 @@ function upDateLocalStorage() {
     rows.push(item.innerHTML);
   });
 
-  console.log("local storage ↓");
+  console.log("↓  local storage  ↓");
   console.log(rows);
   localStorage.setItem("todo", JSON.stringify(rows));
 }
