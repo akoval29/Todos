@@ -10,27 +10,91 @@ const entries = document.querySelectorAll(".block-bottom__entry");
 const num = document.querySelectorAll(".block-bottom__num");
 const cleaner = document.querySelector(".block-bottom__cleaner");
 
-// додаєм рядок
+// перший запуск
+document.addEventListener("DOMContentLoaded", (e) => {
+  e.preventDefault();
+
+  if (localStorage.getItem("todo")) {
+    console.log("we have something in local storage");
+    const rowsForParse = localStorage.getItem("todo");
+    const rows = JSON.parse(rowsForParse);
+    console.log(rows);
+
+    for (let i = 0; i < rows.length; i++) {
+      const row = rows[i];
+      generator(row);
+    }
+  } else {
+    generator("write a letter");
+    generator("go to the cinema");
+  }
+});
+
+// update localStorage
+function upDateLocalStorage() {
+  const rows = [];
+  document.querySelectorAll(".block-bottom__todo").forEach((item) => {
+    rows.push(item.innerHTML);
+  });
+  console.log(rows);
+
+  const rowsJsoned = JSON.stringify(rows);
+  localStorage.setItem("todo", rowsJsoned);
+}
+
+// newTask
 taskGo.addEventListener("click", () => {
   if (taskInput.value) {
-    const entries = document.querySelectorAll(".block-bottom__entry");
+    generator(taskInput.value);
+    taskInput.value = "";
+  }
+  upDateLocalStorage();
+});
 
-    entryBox.innerHTML += `
-    <div class="block-bottom__entry">
-      <p class="block-bottom__num">${entries.length + 1}</p>
-      <p class="block-bottom__todo">${taskInput.value}</p>
+// Generator
+let number = 0;
+let rows = [];
+function generator(val) {
+  // Generator - Нумерація
+  let numArr = document.querySelectorAll(".block-bottom__num");
+  if (numArr.length === 0) {
+    number = 1;
+  } else {
+    number = numArr.length + 1;
+  }
+
+  // Generator - Верстка
+  entryBox.innerHTML += `
+    <div class="block-bottom__entry block-bottom__entry--№${number}">
+      <p class="block-bottom__num">${number}.</p>
+      <p class="block-bottom__todo">${val}</p>
       <img
-        class="block-bottom__img"
+        class="block-bottom__img block-bottom__img--edit"
         src="./src/edit.png"
         alt="edit-img"
       />
-      <img class="block-bottom__img" src="./src/bin.png" alt="bin-img" />
+      <img 
+        class="block-bottom__img block-bottom__img--bin" 
+        src="./src/bin.png" 
+        alt="bin-img" 
+      />
     </div>
-    `;
+  `;
+  // Generator - Корзинки
+  document.querySelectorAll(".block-bottom__img--bin").forEach((item) => {
+    item.addEventListener("click", () => {
+      item.parentNode.remove();
+    });
+  });
 
-    taskInput.value = "";
-  }
-});
+  // Generator - Олівці
+  document.querySelectorAll(".block-bottom__img--edit").forEach((item) => {
+    item.addEventListener("click", () => {
+      taskInput.value = item.previousElementSibling.innerHTML;
+      item.parentNode.remove();
+    });
+  });
+}
 
 // Clear Items
 cleaner.addEventListener("click", () => {
@@ -53,7 +117,8 @@ main.addEventListener("click", () => {
   taskInput.focus();
 });
 
-// клік на дівчину - перезапуск сторінки
+// клік на дівчину - перезапуск сторінки і local storage
 girl.addEventListener("click", () => {
+  localStorage.removeItem("todo");
   window.location.reload();
 });

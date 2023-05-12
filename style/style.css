@@ -6,7 +6,7 @@
   align-items: center;
   justify-content: center;
   font-family: "Roboto", sans-serif;
-  background: linear-gradient(to bottom left, #96a2e8, white) no-repeat;
+  background: linear-gradient(to bottom left, #96b0e8, white) no-repeat;
   height: 100vh;
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -37,7 +37,7 @@
   width: 500px;
   padding: 10px;
   box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.3);
-  background-color: rgb(66, 88, 214);
+  background-color: rgb(66, 113, 214);
   color: white;
 }
 .block-top__img {
@@ -58,7 +58,7 @@
   border-bottom-right-radius: 10px;
   padding: 20px 20px 50px 20px;
   box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.3);
-  background-color: #abb5ed;
+  background-color: #abc0ed;
 }
 .block-bottom__img {
   -o-object-fit: cover;
@@ -80,7 +80,7 @@
   text-align: center;
   text-transform: uppercase;
   opacity: 0.6;
-  border: 1px solid rgb(66, 88, 214);
+  border: 1px solid rgb(66, 113, 214);
   border-radius: 5px;
   box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.3);
   transition: background-color 0.5s ease, box-shadow 0.5s ease;
@@ -96,18 +96,18 @@
   text-transform: none;
 }
 .block-bottom__input:focus {
-  box-shadow: 0 0 10px rgb(66, 88, 214);
+  box-shadow: 0 0 10px rgb(66, 113, 214);
   outline: none;
 }
 .block-bottom__label {
-  color: rgb(66, 88, 214);
+  color: rgb(66, 113, 214);
   font-weight: bolder;
 }
 .block-bottom__btn {
   width: 50px;
   height: 30px;
   border-radius: 7px;
-  background-color: rgb(66, 88, 214);
+  background-color: rgb(66, 113, 214);
   transition: scale 0.3s ease-in-out;
   color: white;
   font-weight: bold;
