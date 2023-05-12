@@ -49,8 +49,8 @@ taskGo.addEventListener("click", () => {
   if (taskInput.value) {
     generator(taskInput.value);
     taskInput.value = "";
+    upDateLocalStorage();
   }
-  upDateLocalStorage();
 });
 
 // Generator
