@@ -1,0 +1,177 @@
+@import url("normalize.css");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap");
+
+$theme-color: rgb(66, 113, 214);
+
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Roboto", sans-serif;
+  background: linear-gradient(
+      to bottom left,
+      (lighten($theme-color, 20%)),
+      white
+    )
+    no-repeat;
+  height: 100vh;
+  user-select: none; // user cannot select text
+  &__wrap {
+    position: relative;
+  }
+  &__girl {
+    position: absolute;
+    object-fit: cover;
+    max-width: 200px;
+    top: -3%;
+    right: -28.8%;
+    z-index: 1;
+  }
+}
+
+.block-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 90px;
+  max-width: 500px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  padding: 10px;
+  box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.3);
+  background-color: $theme-color;
+  color: white;
+  &__img {
+    object-fit: cover;
+    max-width: 200px;
+  }
+}
+
+.block-bottom {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  min-height: 400px;
+  max-width: 500px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding: 20px 20px 50px 20px;
+  box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.3);
+  background-color: lighten($theme-color, 25%);
+
+  &__wrap {
+    display: flex;
+    flex-direction: row;
+    padding-right: 35px;
+  }
+  &__input {
+    width: 350px;
+    height: 30px;
+    margin: 0px 10px 10px 0px;
+    text-align: center;
+    text-transform: uppercase;
+    opacity: 0.6;
+    border: 1px solid $theme-color;
+    border-radius: 5px;
+    box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.5s ease, box-shadow 0.5s ease;
+    &::placeholder {
+      color: #999;
+      font-style: italic;
+      text-transform: none;
+    }
+    &:focus {
+      box-shadow: 0 0 10px $theme-color;
+      outline: none;
+    }
+  }
+  &__label {
+    color: $theme-color;
+    font-weight: bolder;
+  }
+  &__btn {
+    width: 50px;
+    height: 30px;
+    border-radius: 7px;
+    background-color: $theme-color;
+    transition: scale 0.3s ease-in-out;
+    color: white;
+    font-weight: bold;
+    box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease-in-out;
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.05);
+    }
+    &:active {
+      transform: scale(1);
+    }
+  }
+
+  &__entries {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  &__entry {
+    display: flex;
+    flex-direction: row;
+    margin: 10px 0;
+    font-size: 20px;
+    font-family: "Poppins", sans-serif;
+    font-weight: bold;
+  }
+
+  &__todo {
+    margin: 0 10px;
+  }
+
+  &__cleaner {
+    position: absolute;
+    bottom: 3%;
+    left: 32%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: green;
+    transition: transform 0.2s ease-in-out;
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.1);
+    }
+  }
+
+  &__img {
+    object-fit: cover;
+    max-width: 30px;
+    margin: 0 10px;
+    transition: transform 0.2s ease-in-out;
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.2);
+    }
+  }
+
+  &__spinner {
+    animation-name: spin;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}

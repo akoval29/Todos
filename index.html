@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="src/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="test" />
+    <title>Todo list</title>
+    <link rel="stylesheet" href="style/style.css" />
+  </head>
+  <body class="main">
+    <article class="main__wrap">
+      <img class="main__girl" src="./src/girl.png" alt="girl-img" />
+
+      <section class="block-top">
+        <img class="block-top__img" src="./src/todo-logo2.png" alt="logo-img" />
+      </section>
+
+      <section class="block-bottom">
+        <label class="block-bottom__label" for="newTask">New task</label>
+        <div class="block-bottom__wrap">
+          <input
+            class="block-bottom__input"
+            type="text"
+            id="newTask"
+            name="first-name"
+            placeholder="enter your task"
+            required
+          />
+          <button class="block-bottom__btn">Go</button>
+        </div>
+
+        <div class="block-bottom__entries"></div>
+
+        <article class="block-bottom__cleaner">
+          <img
+            class="block-bottom__img block-bottom__spinner"
+            src="./src/clear.png"
+            alt="bin-img"
+          />
+          <p class="block-bottom__clear">clear items</p>
+          <img
+            class="block-bottom__img block-bottom__spinner"
+            src="./src/clear.png"
+            alt="bin-img"
+          />
+        </article>
+      </section>
+    </article>
+    <script src="js/script.js"></script>
+  </body>
+</html>
